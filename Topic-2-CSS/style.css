@@ -5,10 +5,12 @@ body {
 
 header {
   background: #5E8BBD;
+  text-align: center;
 }
 
 footer {
   background: #9D62BF;
+  text-align: center;
 }
 
 aside {
