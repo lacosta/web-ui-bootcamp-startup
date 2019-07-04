@@ -3,6 +3,10 @@ body {
   font-size: 14px;
 }
 
+[class$="r"]{
+  background: magenta;
+}
+
 header {
   background: #5E8BBD;
   text-align: center;
