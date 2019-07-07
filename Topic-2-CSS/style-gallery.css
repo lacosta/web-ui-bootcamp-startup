@@ -1,0 +1,24 @@
+.row {
+  display: flex;
+
+}
+
+.column {
+  display: flex;
+  flex-direction: column;
+}
+
+img {
+  margin: 5px;
+  max-width: 100%;
+}
+
+.item {
+  flex-basis: 50%;
+}
+
+@media screen and (max-width: 600px) {
+  .row {
+    flex-direction: column;
+  }
+}
