@@ -13,8 +13,13 @@ img {
   max-width: 100%;
 }
 
-.item {
-  flex-basis: 50%;
+.grid {
+  display: grid;
+  width: 100%;
+  grid-template-columns: repeat(3, 1fr);
+  margin: 5px;
+  font-family: 'Century Gothic';
+  font-size: 13px;
 }
 
 @media screen and (max-width: 600px) {
@@ -22,3 +27,5 @@ img {
     flex-direction: column;
   }
 }
+
+
