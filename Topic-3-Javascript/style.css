@@ -1,6 +1,6 @@
-body {background: #E9EBEE; text-align: center;
-}
-h1 {font-family: 'Chakra Petch', sans-serif;}
+body {background: #E9EBEE;}
+section {text-align: center;}
+h1 {font-family: 'Chakra Petch', sans-serif; text-align: center;}
 p {font-family: 'Sniglet', cursive;}
 hr {width: 20%;}
 input, select {
