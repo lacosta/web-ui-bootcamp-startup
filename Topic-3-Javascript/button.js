@@ -39,3 +39,28 @@ button4.addEventListener('click', () => {
 function fetchData(url) {
   return fetch(url).then(x => x.json())
 }
+
+const button5 = document.getElementById('listButton')
+button5.addEventListener('click', () => {
+  fetch('https://api.github.com/search/repositories?q=JavaScript')
+    .then(res => res.ok ? Promise.resolve(res) : Promise.reject(res))
+    .then(res => res.json())
+    .then(res => {
+      const list = document.getElementById('list')
+      for (const repoInfo of res.items){
+        const listItem = document.createElement('LI')
+        listItem.textContent = `${repoInfo.full_name}`
+        list.appendChild(listItem)
+      }
+    })
+})
+
+const searchBook = document.getElementById('searchForm');
+  searchBook.addEventListener('keyup',function(x){
+    const term = x.target.value.toLowerCase();
+    const repos = list.getElementsByTagName('li');
+    Array.from(repos).forEach(function(repo){
+      const title = repo.textContent;
+      title.toLowerCase().indexOf(term) != -1 ? repo.style.display = 'block' : repo.style.display = 'none'
+  })
+})
