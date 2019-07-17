@@ -15,3 +15,13 @@ const movie3 = new Movie('Toc Toc', 2017, 96);
 console.log(`This movie: ${movie1.title} was released in ${movie1.year}, and has a duration of ${movie1.duration} minutes.`);
 console.log(`This movie: ${movie2.title} was released in ${movie2.year}, and has a duration of ${movie2.duration} minutes.`);
 console.log(`This movie: ${movie3.title} was released in ${movie3.year}, and has a duration of ${movie3.duration} minutes.`);
+
+class Actor {
+  constructor(name, age){
+    this.name = name;
+    this.age = age;
+  }
+ }
+
+ const actor1 = new Actor('Leandro', 24);
+ console.log(`The lead actor is ${actor1.age} years old, and his name is ${actor1.name}`);
