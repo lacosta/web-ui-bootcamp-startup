@@ -5,6 +5,7 @@ section {text-align: center;}
 }
 h1, h2 {font-family: 'Chakra Petch', sans-serif; text-align: center;}
 p,li {font-family: 'Sniglet', cursive; text-align: center; list-style: none;}
+
 hr {width: 20%;}
 input, select {
   width: 15%;
