@@ -24,4 +24,18 @@ button3.addEventListener('click', () => {
     document.getElementById('chuckJoke').innerHTML = (chuckP)
   })
   xhr.send()
+}) 
+
+const button4 = document.getElementById('functionChuck2')
+const parrafo = document.getElementById('chuckJoke2')
+button4.addEventListener('click', () => {
+  fetchData('http://api.icndb.com/jokes/random').then(data => {
+    chuckJoke2.innerHTML = data.value.joke
+  }).catch(err => {
+    document.getElementById('idSection').style.backgroundColor = "red";
+  })
 })
+
+function fetchData(url) {
+  return fetch(url).then(x => x.json())
+}
