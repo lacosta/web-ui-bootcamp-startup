@@ -4,7 +4,7 @@ section {text-align: center;}
   display: none;
 }
 h1, h2 {font-family: 'Chakra Petch', sans-serif; text-align: center;}
-p {font-family: 'Sniglet', cursive;}
+p {font-family: 'Sniglet', cursive; text-align: center;}
 hr {width: 20%;}
 input, select {
   width: 15%;
@@ -74,4 +74,3 @@ input, select {
   from { opacity: 0;}
   to { opacity: 1;}
 }
-*/
