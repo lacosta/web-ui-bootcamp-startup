@@ -5,11 +5,10 @@ class Actor {
   }
  }
 
- const actor1 = new Actor('Leandro', 24);
- console.log(`The lead actor is ${actor1.age} years old, and his name is ${actor1.name}`);
+ const ACTOR1 = new Actor('Leandro', 24);
+ console.log(`The lead actor is ${ACTOR1.age} years old, and his name is ${ACTOR1.name}`);
 
-
-class EvenEmitter {
+class EventEmitter {
   constructor () {
     this.events = {}
   }
@@ -21,7 +20,9 @@ class EvenEmitter {
     }
   }
   emit (eventName) {
+    if (this.events[eventName]) {
     this.events[eventName].forEach(callback => callback());
+    }
   }
   off (eventName, callback) {
     let newEvents = this.events[eventName].filter(c => c !== callback);
@@ -30,14 +31,13 @@ class EvenEmitter {
   }
 }
 
-const myEventEmitter = new EvenEmitter();
+const MYEVENTEMITTER = new EventEmitter();
 const TEST = () => console.log('You have subscribed to an event');
-myEventEmitter.on('subscribed', TEST);
-myEventEmitter.emit('subscribed');
-myEventEmitter.off('subscribed', TEST);
+MYEVENTEMITTER.on('subscribed', TEST);
+MYEVENTEMITTER.emit('subscribed');
+MYEVENTEMITTER.off('subscribed', TEST);
 
-class Movie extends EvenEmitter {
-  
+class Movie extends EventEmitter {
   constructor (name, year, duration) {
     super();
     this.title = name;
@@ -46,13 +46,17 @@ class Movie extends EvenEmitter {
     this.cast = [];
   }
   play() {
-    console.log(`${this.title} has been started`)
+    console.log(`${this.title} has been started`);
+    this.emit('play');
+
   }
   pause() {
-    console.log(`${this.title} has been paused`)
+    console.log(`${this.title} has been paused`);
+
   }
   resume() {
-    console.log(`${this.title} has been resumed`)
+    console.log(`${this.title} has been resumed`);
+
   }
   addCast(actor) {
     if (Array.isArray(actor)) {
@@ -65,25 +69,53 @@ class Movie extends EvenEmitter {
   }
 }
 
-const movie1 = new Movie('American Sniper', 2014, 132);
-const movie2 = new Movie('Mi obra maestra', 2018, 100);
-const movie3 = new Movie('Toc Toc', 2017, 96);
-movie1.play();
-movie2.pause();
-movie3.resume();
+const MOVIE1 = new Movie('American Sniper', 2014, 132);
+const MOVIE2 = new Movie('Mi obra maestra', 2018, 100);
+const MOVIE3 = new Movie('Toc Toc', 2017, 96);
+MOVIE1.play();
+MOVIE2.pause();
+MOVIE3.resume();
 
-console.log(`This movie: ${movie1.title} was released in ${movie1.year}, and has a duration of ${movie1.duration} minutes.`);
-console.log(`This movie: ${movie2.title} was released in ${movie2.year}, and has a duration of ${movie2.duration} minutes.`);
-console.log(`This movie: ${movie3.title} was released in ${movie3.year}, and has a duration of ${movie3.duration} minutes.`);
+console.log(`This movie: ${MOVIE1.title} was released in ${MOVIE1.year}, and has a duration of ${MOVIE1.duration} minutes.`);
+console.log(`This movie: ${MOVIE2.title} was released in ${MOVIE2.year}, and has a duration of ${MOVIE2.duration} minutes.`);
+console.log(`This movie: ${MOVIE3.title} was released in ${MOVIE3.year}, and has a duration of ${MOVIE3.duration} minutes.`);
 
-const terminator = new Movie('Terminator I', 1985, 60);
-const arnold = new Actor('Arnold Schwarzenegger', 50);
-const terminatorActors = [
+const TERMINATOR = new Movie('Terminator I', 1985, 60);
+const ARNOLD = new Actor('Arnold Schwarzenegger', 50);
+const TERMINATORACTORS = [
     new Actor('Paul Winfield', 50),
     new Actor('Michael Biehn', 50),
     new Actor('Linda Hamilton', 50)
 ];
 
-terminator.addCast(terminatorActors);
-terminator.addCast(arnold);
-console.log(terminator);
+TERMINATOR.addCast(TERMINATORACTORS);
+TERMINATOR.addCast(ARNOLD);
+
+class Logger {
+  constructor () {}
+  log(info) {
+    console.log(info);
+  }
+}
+
+const logger = new Logger();
+function playEvent(){
+  logger.log("The 'play' event has been emitted");
+}
+TERMINATOR.on('play', playEvent);
+TERMINATOR.play();
+
+
+const SOCIAL = {
+  share (friendName) {
+    console.log(`${friendName} shares ${this.title}`);
+  },
+  like (friendName) {
+    console.log(`${friendName} likes ${this.title}`);
+  }
+};
+
+let ironMan = new Movie('Iron Man', 2008, 126)
+ironMan = Object.assign(ironMan, SOCIAL);
+ironMan.share('Mike Blossom');
+ironMan.like('Mike Blossom');
