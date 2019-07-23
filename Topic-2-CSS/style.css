@@ -1,0 +1,48 @@
+body {
+  font-family: 'Century Gothic';
+  font-size: 14px;
+}
+
+[class$="r"]{
+  background: magenta;
+}
+
+header {
+  background: #5E8BBD;
+  text-align: center;
+}
+
+footer {
+  background: #9D62BF;
+  text-align: center;
+}
+
+aside {
+  background: #A5718D;
+}
+
+nav {
+  background: #2EC298;
+}
+
+.header {
+  font-size: 46px;
+}
+
+.footer {
+  font-size: 10px;
+}
+
+.content {
+  font-size: 14px;
+}
+
+.navigation {
+  font-size: 12px;
+  padding: 140px; 
+}
+
+.sidebar {
+  font-size: 10px;
+  margin: 100px;
+}
