@@ -1,0 +1,18 @@
+<div class="main-container">
+  <div class="container" *ngFor="let item of items | paginate: {itemsPerPage: 3, currentPage: actualPage}">
+    <div class="box">
+      <div class="img">
+        <img src="{{item.fullImage}}"/>
+      </div>
+      <div class="content">
+        <h3>{{item.name}}</h3>
+        <p>Function: {{item.plaintext}}</p>
+        <p>Value: {{item.gold.base}}</p>
+        <p>{{item.description}}</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<pagination-controls (pageChange)="actualPage = $event" style="text-align: center;"></pagination-controls>
+
