@@ -1,0 +1,20 @@
+<div class="main-container">
+  <div class="container">
+    <div class="box" *ngFor="let champion of champions | paginate: {itemsPerPage: 4, currentPage: actualPage}">
+      <div class="content">
+        <ul>
+          <li>
+            <img src="{{champion.fullImage}}"/>
+            <h3>{{champion.name}}</h3>
+            <p>{{champion.title}}</p>
+            <p class="stats">Attack: {{champion.info.attack}}</p>
+            <p class="stats">Defense: {{champion.info.defense}}</p>
+            <p class="stats">Magic: {{champion.info.magic}}</p>
+            <p class="stats">Difficulty: {{champion.info.difficulty}}</p>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+<pagination-controls (pageChange)="actualPage = $event" style="text-align: center;"></pagination-controls>
